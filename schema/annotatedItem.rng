@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="item"/>
+    </start>
+    
+    <!-- ROOT ITEM -->
+    <define name="item">
+        <element name="item">
+            <a:documentation>An item with annotation layers</a:documentation>
+            <optional>
+                <attribute name="highlight"/>
+            </optional>
+            <oneOrMore>
+                <ref name="layer"/>
+            </oneOrMore>
+        </element>
+    </define>
+    
+    <!-- LAYER -->
+    <define name="layer">
+        <element name="layer">
+            <a:documentation>An annotation layer</a:documentation>
+            <attribute name="id">
+                <data type="anyURI"/>
+            </attribute>
+            <text/>
+        </element>
+    </define>
+</grammar>
